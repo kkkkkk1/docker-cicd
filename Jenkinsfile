@@ -7,12 +7,16 @@ node {
    }
    stage('dockerbuild') {
      //def app = docker.build("yanivomc/docker-nodejs-demo:${commit_id}", '.'a
+     sh """
      echo "build"
+     """
      
    }
    stage('sonarqube tests') {
       //def app = docker.build("yanivomc/sonar:${commit_id}", '-f sonarbuild' , '.')                             
+      sh """
       echo "sonar"
+      """
      
    }                                     
    //stage('docker build/push') {            
