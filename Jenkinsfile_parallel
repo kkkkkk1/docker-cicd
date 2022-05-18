@@ -1,13 +1,22 @@
 pipeline {
     agent any
     stages {
+		stage ('Prepare){
+			steps {
+				script {
+				checkout scm
+					sh "git rev-parse --short HEAD > .git/commit-id"
+					commit_id = readFile('.git/commit-id').trim()
+				}
+			}
+		}
         stage('Compile and Build Binary') {
             parallel {
                 stage(“dockerbuild”) {
 				steps {
-					sh """
-					echo "build"
-					"""
+					script {
+                       def app = docker.build("kkkkkk1/docker-cicd:${commit_id}", './basics')
+                     }
 					}
 				}
             
