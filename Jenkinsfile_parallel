@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage(“Compile & Build Binary”) {
+        stage(“Compile and Build Binary”) {
             parallel {
                 stage(“dockerbuild”) {
 				steps {
@@ -21,10 +21,12 @@ pipeline {
 			}
         }
    
-   stage('docker build/push') {            
-   sh """
-   echo "push image"
-   """
-   }     
-   }
+	   stage('docker build/push') {            
+			steps {
+			   sh """
+				echo "push image"
+				"""
+			}
+	   }     
+	   }
 }
