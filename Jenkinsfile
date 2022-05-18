@@ -5,7 +5,7 @@ node {
      sh "git rev-parse --short HEAD > .git/commit-id"
      commit_id = readFile('.git/commit-id').trim()
    }
-   parallel {
+   
    stage('dockerbuild') {
      //def app = docker.build("yanivomc/docker-nodejs-demo:${commit_id}", '.'a
      sh """
@@ -20,7 +20,7 @@ node {
       """
      
    }         
-   }
+   
    stage('docker build/push') {            
    //  docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
     //   def app = docker.build("yanivomc/docker-nodejs-demo:${commit_id}", '.').push()
