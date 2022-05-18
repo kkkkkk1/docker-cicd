@@ -1,15 +1,17 @@
-FROM node:4.6 as unit
+FROM node:4.6 as build
 WORKDIR /app
 ADD . /app
+
+FROM build as ut
 RUN echo "unit test"
 
-FROM node:4.6 as static
+FROM build as static
 RUN echo "coverage and static analysis"
 
-FROM node:4.6 as ui
+FROM build as ui
 RUN echo "UI tests"
 
-FROM node:4.6 as final
+FROM build as final
 RUN echo "final artifact"
 
 from node:4.6
