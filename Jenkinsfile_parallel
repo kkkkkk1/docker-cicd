@@ -11,10 +11,10 @@ pipeline {
 					}
 				}
             
-                stage(“dockerbuild”) {
+                stage(“sonar”) {
      			steps {
 					sh """
-					echo "build"
+					echo "sonar"
 					"""
 					}
                 }
