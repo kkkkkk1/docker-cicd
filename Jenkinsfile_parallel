@@ -20,11 +20,11 @@ pipeline {
                 }
 			}
         }
-    }
+   
    stage('docker build/push') {            
    sh """
    echo "push image"
    """
    }     
-}
+   }
 }
